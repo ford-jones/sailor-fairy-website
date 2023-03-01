@@ -1,2 +1,8 @@
-.env
 node_modules
+*.log
+*.sqlite3
+src/public/bundle.js
+src/public/bundle.js.map
+.env
+tags
+.vscode
