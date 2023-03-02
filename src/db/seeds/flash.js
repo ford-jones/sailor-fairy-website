@@ -5,8 +5,9 @@ exports.seed = function (knex) {
       .then(function () {
         return knex('flash').insert([
           {
-            id: 0,
-            date: 12345,
+            id: 1,
+            Date: 12345,
+            Filename: 'flashTest.png'
           },
         ])
       })
