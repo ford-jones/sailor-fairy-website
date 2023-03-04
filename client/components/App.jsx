@@ -6,6 +6,7 @@ import Flash from './Flash'
 import Faq from './Faq'
 import Booking from './Booking'
 import TattooGallery from './TattooGallery'
+import Admin from './Admin'
 
 export default function App() {
     return (
@@ -17,6 +18,7 @@ export default function App() {
                 <Route path='/Gallery' element={<TattooGallery />} />
                 <Route path='/Booking' element={<Booking />} />
                 <Route path='/Faq' element={<Faq />} />
+                <Route path='/Admin' element={<Admin />} />
             </Routes>
         </div>
         </>

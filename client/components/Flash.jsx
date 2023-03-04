@@ -1,7 +1,13 @@
-import React from "react"
+import React, {useState} from "react"
+
+import FlashContainer from './subcomponents/FlashContainer'
 
 export default function Flash() {
+
     return (
-        <p>Flash</p>
+        <>
+        <h1>Flash</h1>
+        <FlashContainer />
+        </>
     )
 }
