@@ -3,6 +3,7 @@ exports.up = function(knex) {
       table.increments('id').primary()
       table.integer('Date')
       table.string('Filename')
+      table.integer('Taken_status')
     })
   };
   

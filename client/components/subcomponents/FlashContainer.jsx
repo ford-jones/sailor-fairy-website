@@ -25,7 +25,13 @@ export default function FlashContainer() {
             return x.id === e.target.id
         })
 
-        image.style.border = '2px solid black'
+        const match = flash.images.find((y) => {
+            return y.id == e.target.id
+        })
+
+            match.Taken_status === 1 
+            ? image.style.border = '2px solid red'
+            : image.style.border = '2px solid black'
     }
 
     function onMouseOut(e) {
