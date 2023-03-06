@@ -11,7 +11,11 @@ export default function FlashContainer() {
     const images =[...allImages]
 
     useMemo(async () => {
-        setFlash(await fetchFlash())
+        const getFlash = await fetchFlash()
+        const reverseFlash = getFlash.images.reverse()
+        console.log(reverseFlash)
+
+        setFlash(reverseFlash)
 
         setTimeout(() => {
             setLoading(false)    
@@ -25,7 +29,7 @@ export default function FlashContainer() {
             return x.id === e.target.id
         })
 
-        const match = flash.images.find((y) => {
+        const match = flash.find((y) => {
             return y.id == e.target.id
         })
 
@@ -59,6 +63,12 @@ export default function FlashContainer() {
             image.style.marginRight = 'auto'
             image.style.position = 'relative'
         }
+
+        const image = images.find((x) => {
+            return x.id === e.target.id
+        })
+
+        image.scrollIntoView({block: 'center'})
     }
 
     return (
@@ -66,7 +76,7 @@ export default function FlashContainer() {
         <div className='imageContainer'>
             {loading  
             ? <Loader /> 
-            : flash.images.map((x) => (
+            : flash.map((x) => (
                 <img src={`images/flash/${x.Filename}`} alt="flashImage" className='flashImage' id={x.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut} onClick={onClick}/>
             ))
             } 
