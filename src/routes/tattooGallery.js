@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const db = require('../db/flash')
+const db = require('../db/tattooGallery')
 
 router.get('/', (req, res) => {
-    db.getFlash()
+    db.getGallery()
     .then((data) => {
         res.json({images: data.map((image) => image)})
     })

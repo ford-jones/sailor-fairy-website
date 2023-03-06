@@ -1,7 +1,11 @@
 import React from "react"
+import TattooGalleryContainer from "./subcomponents/TattooGalleryContainer"
 
 export default function TattooGallery() {
     return (
-        <p>Tattoo Gallery</p>
+        <>
+        <h1 className="header">Tattoo Gallery</h1>
+        <TattooGalleryContainer />
+        </>
     )
 }
