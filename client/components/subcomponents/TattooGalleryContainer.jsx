@@ -1,50 +1,26 @@
 import React, {useState, useMemo} from 'react'
 
-import {fetchFlash} from '../../api/flash'
+import {fetchGallery} from '../../api/tattooGallery'
 import Loader from './Loader'
 
-export default function FlashContainer() {
-    const [flash, setFlash] = useState([])
+export default function TattooGalleryContainer() {
+    const [gallery, setGallery] = useState([])
     const [loading, setLoading] = useState(true)
     
     const allImages = document.getElementsByTagName('img')
     const images =[...allImages]
 
     useMemo(async () => {
-        const getFlash = await fetchFlash()
-        const reverseFlash = getFlash.images.reverse()
+        const getGallery = await fetchGallery()
+        const reverseGallery = getGallery.images.reverse()
 
-        setFlash(reverseFlash)
+        setGallery(reverseGallery)
 
         setTimeout(() => {
             setLoading(false)    
         }, 2000);
         
     }, [loading])
-    
-    function onMouseOver(e) {
-        e.preventDefault()
-        const image = images.find((x) => {
-            return x.id === e.target.id
-        })
-
-        const match = flash.find((y) => {
-            return y.id == e.target.id
-        })
-
-            match.Taken_status === 1 
-            ? image.style.border = '2px solid red'
-            : image.style.border = '2px solid black'
-    }
-
-    function onMouseOut(e) {
-        e.preventDefault()
-        const image = images.find((x) => {
-            return x.id === e.target.id
-        })
-
-        image.style.border = '2px solid white'
-    }
 
     function onClick(e) {
         e.preventDefault()
@@ -75,8 +51,8 @@ export default function FlashContainer() {
         <div className='imageContainer'>
             {loading  
             ? <Loader /> 
-            : flash.map((x) => (
-                <img src={`images/flash/${x.Filename}`} alt="flashImage" className='flashImage' id={x.id} onMouseOver={onMouseOver} onMouseOut={onMouseOut} onClick={onClick}/>
+            : gallery.map((x) => (
+                <img src={`images/tattoos/${x.Filename}`} alt="galleryImage" className='flashImage' id={x.id} onClick={onClick}/>
             ))
             } 
         </div>
