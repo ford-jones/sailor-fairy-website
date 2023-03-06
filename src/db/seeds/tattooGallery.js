@@ -7,7 +7,8 @@ exports.seed = function (knex) {
           {
             id: 1,
             Date: 12345,
-            Filename: 'tattooGalleryTest.png'
+            Filename: 'tattooGalleryTest.png',
+            Taken_status: 0
           },
         ])
       })

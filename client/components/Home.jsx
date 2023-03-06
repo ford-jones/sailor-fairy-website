@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 export default function Home() {
     return(
         <>
-        <div className="home">
+        <div className="header">
         <h1>Sailor Fairy</h1>
         <p>Welcome!</p>
 
