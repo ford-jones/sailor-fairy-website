@@ -22,3 +22,44 @@
     width: 450px;
     border: 2px solid white;
 }
+
+.bookingForm {
+    display: flex;
+    flex-direction: column;
+    flex: content;
+    text-align: center;
+    border: 2px solid gray;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    margin-bottom: 80px;
+    box-shadow: 1px 1px 5px 5px gray;
+}
+
+.textbox {
+    width: 500px;
+    align-self: center;
+    margin: 20px;
+}
+
+.bigTextBox {
+    width: 400px;
+    height: 200px;
+    align-self: center;
+    margin: 20px;
+}
+
+.label {
+    position: relative;
+    /* top: 40px; */
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+}
+
+.checkboxLabel {
+    position: relative;
+    /* top: 20px;
+    left: -50px; */
+}
