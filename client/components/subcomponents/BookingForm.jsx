@@ -15,13 +15,9 @@ export default function BookingForm() {
         if(e.target.type == "text") {
             setBookingForm({ ...bookingForm, [e.target.name]: e.target.value })
         }
-        if(e.target.type == "checkbox" && bookingForm.flash === false || bookingForm.custom === false) {
+        if(e.target.type == "checkbox") {
             setBookingForm({...bookingForm, [e.target.name]: true})
             setBookingForm({...bookingForm, [e.target.name]: true})
-        }
-        if(e.target.type == "checkbox" && bookingForm.flash === true || bookingForm.custom === true) {
-            setBookingForm({...bookingForm, [e.target.name]: false})
-            setBookingForm({...bookingForm, [e.target.name]: false})
         }
     }
 
