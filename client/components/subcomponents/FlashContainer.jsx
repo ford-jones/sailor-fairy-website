@@ -56,11 +56,13 @@ export default function FlashContainer() {
                 
         for(let i = 0; i < images.length; i++) {
             const image = images[i]
+            if(image.alt != "homeButton") {
             image.style.width = '800px'
             image.style.height = '800px'
             image.style.marginLeft = 'auto'
             image.style.marginRight = 'auto'
             image.style.position = 'relative'
+            }
         }
 
         const image = images.find((x) => {
