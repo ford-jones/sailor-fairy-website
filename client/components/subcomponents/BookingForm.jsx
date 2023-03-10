@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useRef} from "react"
+import emailjs from '@emailjs/browser'
 
 export default function BookingForm() {
     const [bookingForm, setBookingForm] = useState({first_name: "", last_name: "", pref_name: "", email: "", mobile_number: "", pref_pronoun: "", flash: false, custom: false, brief_description: "", pref_day: "", pref_time: "", any_questions: ""})
+    const formHtml = useRef()
 
     function handleChange(e) {
         if(e.target.type == "checkbox") {
@@ -12,19 +14,31 @@ export default function BookingForm() {
         }
     }
 
-    function handleClick(e) {
+    function handleSubmit(e) {
         e.preventDefault()
-        console.log(bookingForm)
+
+        const serviceId = process.env.SERVICE_ID
+        const templateId = process.env.TEMPLATE_ID
+        const apiKey = process.env.EMAILJS_API_KEY
+        
+        emailjs.sendForm(serviceId, templateId, formHtml.current, apiKey)
+        .then((res) => {
+            console.log(res.text)
+        })
+        .catch((err) => {
+            console.log(err.message)
+        })  
     }
 
     return(
         <>
-        <form id="bookingForm" >
+        <form ref={formHtml} className="bookingForm" noValidate>
         <h3>Booking Details:</h3>
             <label htmlFor="first_name" className="label">First Name:</label>
             <input 
             type="text" 
-            name="first_name"  
+            name="first_name"
+            placeholder=""  
             value={bookingForm.first_name} 
             onChange={handleChange}
             className="textbox"
@@ -33,6 +47,7 @@ export default function BookingForm() {
             <input
             type="text"
             name="last_name"
+            placeholder=""
             value={bookingForm.last_name}
             onChange={handleChange}
             className="textbox"
@@ -58,6 +73,7 @@ export default function BookingForm() {
             <input
             type="text"
             name="mobile_number"
+            placeholder=""
             value={bookingForm.mobile_number}
             onChange={handleChange}
             className="textbox"
@@ -114,6 +130,7 @@ export default function BookingForm() {
             <input
             type="text"
             name="pref_time"
+            placeholder=""
             value={bookingForm.pref_time}
             onChange={handleChange}
             className="textbox"
@@ -131,7 +148,7 @@ export default function BookingForm() {
             className="bigTextBox"
             ></input>
 
-            <button type="submit" onClick={handleClick} className="button">Submit your booking</button>
+            <button type="submit" onClick={handleSubmit} className="button">Submit your booking</button>
         </form>
         </>
     )
