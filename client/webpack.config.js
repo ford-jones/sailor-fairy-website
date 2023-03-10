@@ -29,11 +29,20 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(
-            process.env.NODE_ENV
+          process.env.NODE_ENV
           ),
         'process.env.LOCAL_PORT': JSON.stringify(
-            process.env.LOCAL_PORT
+          process.env.LOCAL_PORT
           ),
+        'process.env.SERVICE_ID': JSON.stringify(
+          process.env.SERVICE_ID
+        ),
+        'process.env.TEMPLATE_ID': JSON.stringify(
+          process.env.TEMPLATE_ID
+        ),
+        'process.env.EMAILJS_API_KEY': JSON.stringify(
+          process.env.EMAILJS_API_KEY
+        )
     })
   ],
 }
