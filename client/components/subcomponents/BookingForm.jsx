@@ -1,37 +1,79 @@
 import React, {useState, useRef} from "react"
+import RejectedPopup from "./RejectedPopup"
+import SuccessfulPopup from "./SuccessfulPopup"
+import { useNavigate } from "react-router-dom"
 import emailjs from '@emailjs/browser'
 
 export default function BookingForm() {
     const [bookingForm, setBookingForm] = useState({first_name: "", last_name: "", pref_name: "", email: "", mobile_number: "", pref_pronoun: "", flash: false, custom: false, brief_description: "", pref_day: "", pref_time: "", any_questions: ""})
+    const [rejectPopup, setRejectPopup] = useState(false)
+    const [successPopup, setSuccessPopup] = useState(false)
+    const navigate = useNavigate()
     const formHtml = useRef()
 
     function handleChange(e) {
-        if(e.target.type == "checkbox") {
-            setBookingForm({...bookingForm, [e.target.name]: true})
-        }
         if(e.target.type == "text") {
             setBookingForm({ ...bookingForm, [e.target.name]: e.target.value })
+        }
+        if(e.target.type == "checkbox" && bookingForm.flash === false || bookingForm.custom === false) {
+            setBookingForm({...bookingForm, [e.target.name]: true})
+            setBookingForm({...bookingForm, [e.target.name]: true})
+        }
+        if(e.target.type == "checkbox" && bookingForm.flash === true || bookingForm.custom === true) {
+            setBookingForm({...bookingForm, [e.target.name]: false})
+            setBookingForm({...bookingForm, [e.target.name]: false})
         }
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-
+        console.log(bookingForm)
         const serviceId = process.env.SERVICE_ID
         const templateId = process.env.TEMPLATE_ID
         const apiKey = process.env.EMAILJS_API_KEY
         
-        emailjs.sendForm(serviceId, templateId, formHtml.current, apiKey)
-        .then((res) => {
-            console.log(res.text)
-        })
-        .catch((err) => {
-            console.log(err.message)
-        })  
+        if(bookingForm.first_name != "" && 
+        bookingForm.last_name != "" && 
+        bookingForm.email != "" &&
+        bookingForm.mobile_number != "" &&
+        bookingForm.pref_day != "" &&
+        bookingForm.pref_time != "" &&
+        bookingForm.flash == true || 
+        bookingForm.custom == true) {
+
+            emailjs.sendForm(serviceId, templateId, formHtml.current, apiKey)
+            .then((res) => {
+                console.log(res.text)
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })  
+
+            setSuccessPopup(true)
+
+            setTimeout(() => {
+                setSuccessPopup(false)
+                navigate('/Gallery')
+            }, 3500);
+
+        } else {
+
+            setRejectPopup(true)
+
+            setTimeout(() => {
+                setRejectPopup(false)
+            }, 3500);
+        }
     }
 
     return(
         <>
+        {rejectPopup
+        ? <RejectedPopup />
+        : null}
+        {successPopup
+        ? <SuccessfulPopup />
+        : null}
         <form ref={formHtml} className="bookingForm" noValidate>
         <h3>Booking Details:</h3>
             <label htmlFor="first_name" className="label">First Name:</label>

@@ -72,3 +72,20 @@
     margin-right: auto;
     margin-top: 100px;
 }
+
+.popup {
+    background-color: white;
+    top: 50%;
+    left: 35%;
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px;
+    text-align: center;
+    flex: auto;
+    flex-direction: column;
+    z-index: 100;
+    height: max-content;
+    width: max-content;
+    padding: 20px;
+}
