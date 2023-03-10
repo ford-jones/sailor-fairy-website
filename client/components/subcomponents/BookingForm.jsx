@@ -27,7 +27,6 @@ export default function BookingForm() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(bookingForm)
         const serviceId = process.env.SERVICE_ID
         const templateId = process.env.TEMPLATE_ID
         const apiKey = process.env.EMAILJS_API_KEY
