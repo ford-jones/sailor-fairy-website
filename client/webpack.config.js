@@ -42,7 +42,25 @@ module.exports = {
         ),
         'process.env.EMAILJS_API_KEY': JSON.stringify(
           process.env.EMAILJS_API_KEY
-        )
+        ),
+        'process.env.MONGODB_USERNAME': JSON.stringify(
+          process.env.MONGODB_USERNAME
+        ),
+        'process.env.MONGODB_PW': JSON.stringify(
+          process.env.MONGODB_PW
+        ),
+        'process.env.FLASH_DB': JSON.stringify(
+          process.env.MONGODB_FLASH_DB
+        ),
+        'process.env.FLASH_CLN': JSON.stringify(
+          process.env.MONGODB_FLASH_CLN
+        ),
+        'process.env.TATTOO_DB': JSON.stringify(
+          process.env.MONGODB_TATTOO_DB
+        ),
+        'process.env.TATTOO_CLN': JSON.stringify(
+          process.env.MONGODB_TATTOO_CLN
+        ),
     })
   ],
 }

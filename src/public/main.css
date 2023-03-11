@@ -96,3 +96,10 @@
     top: 10px;
     left: 40px;
 }
+
+.break {
+    width: 100%;
+    height: 2px;
+    border: 1px solid gray;
+    margin-top: 50px;
+}
