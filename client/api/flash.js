@@ -25,3 +25,15 @@ export function postFlash(data) {
         console.log(err.message)
     })
 }
+
+export function deleteFlash(data) {
+    return request
+    .del(rootUrl + "/flash")
+    .send(data)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => {
+        console.error(err.message)
+    })
+}

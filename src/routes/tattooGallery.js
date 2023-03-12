@@ -12,4 +12,9 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const data = req.body
+    db.postTattoo(data)
+})
+
 module.exports = router

@@ -21,12 +21,11 @@ async function getGallery() {
     
 }
 
-// function deleteVideo(vid) {
-//     const collection = client.db(database).collection(cltn).deleteOne(vid)
-//     return collection
-// }
+function postTattoo(data) {
+    return client.db(database).collection(cltn).insertOne(data)
+}
 
 module.exports = {
     getGallery,
-    // deleteVideo,
+    postTattoo
 }

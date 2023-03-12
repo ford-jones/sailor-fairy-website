@@ -103,3 +103,39 @@
     border: 1px solid gray;
     margin-top: 50px;
 }
+.delFlash {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 820px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.delFlashImage {
+    width: 120px;
+    height: 120px;
+    flex-direction: row;
+    position: relative;
+}
+
+.delPopup {
+    text-align: center;
+    background-color: white;
+    top: 10%;
+    left: 25%;
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px;
+    text-align: start;
+    flex: auto;
+    flex-direction: column;
+    z-index: 80;
+    height: 500px;
+    width: 900px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}

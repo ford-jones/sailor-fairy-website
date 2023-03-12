@@ -1,11 +1,10 @@
-
 import request from 'superagent'
 
 const rootUrl = '/api/v1'
 
-export function postImage(img) {
+export function postTattooImage(img) {
   return request
-    .post(rootUrl + '/images')
+    .post(rootUrl + '/tattooImages')
     .send(img)
     .then((req) => {
       return req

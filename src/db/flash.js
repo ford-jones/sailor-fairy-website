@@ -1,5 +1,5 @@
 
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb')
 require('dotenv').config()
 
 const usr = process.env.MONGODB_USERNAME
@@ -26,7 +26,17 @@ function postFlash(data) {
     return client.db(database).collection(cltn).insertOne(data)
 }
 
+async function deleteFlash(data) {
+    try {
+        const deletion = await client.db(database).collection(cltn).deleteOne({_id: ObjectId(data._id)})
+        return deletion
+    } catch (err) {
+        console.log(err.message)
+    }
+}
+
 module.exports = {
     getFlash,
-    postFlash
+    postFlash,
+    deleteFlash
 }

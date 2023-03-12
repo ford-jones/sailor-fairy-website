@@ -12,3 +12,16 @@ export function fetchGallery() {
         console.error(err.message)
     })
 }
+
+export function postTattoo(data) {
+    return request
+    .post(rootUrl + "/gallery")
+    .send(data)
+    .then((res) => {
+        console.log('api data: ', res)
+        return res
+    })
+    .catch((err) => {
+        console.log(err.message)
+    })
+}
