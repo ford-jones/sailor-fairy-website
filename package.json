@@ -15,10 +15,9 @@
     "dev:server": "nodemon --watch server src/index.js",
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
-    "build:server": "npm run knex -- migrate:latest",
+    "build:server": "nodemon server",
     "lint": "eslint --ext .js,.jsx .",
-    "webpack": "webpack --config ./client/webpack.config.js",
-    "knex": "knex --knexfile ./src/db/knexfile.js"
+    "webpack": "webpack --config ./client/webpack.config.js"
   },
   "babel": {
     "presets": [
@@ -46,10 +45,9 @@
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",
     "jwks-rsa": "^2.0.4",
-    "knex": "^2.1.0",
+    "mongodb": "^4.13.0",
     "multer": "^1.4.5-lts.1",
     "pg": "^8.7.1",
-    "sqlite3": "^5.0.8",
     "superagent": "7.1.1"
   },
   "devDependencies": {

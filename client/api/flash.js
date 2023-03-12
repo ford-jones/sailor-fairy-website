@@ -12,3 +12,28 @@ export function fetchFlash() {
         console.error(err.message)
     })
 }
+
+export function postFlash(data) {
+    return request
+    .post(rootUrl + "/flash")
+    .send(data)
+    .then((res) => {
+        console.log('api data: ', res)
+        return res
+    })
+    .catch((err) => {
+        console.log(err.message)
+    })
+}
+
+export function deleteFlash(data) {
+    return request
+    .del(rootUrl + "/flash")
+    .send(data)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => {
+        console.error(err.message)
+    })
+}

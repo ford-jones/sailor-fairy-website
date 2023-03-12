@@ -24,28 +24,29 @@ export default function TattooGalleryContainer() {
 
     function onClick(e) {
         e.preventDefault()
+        
         const getContainer = document.getElementsByClassName('imageContainer')
         const container = [...getContainer]
 
-        container[0].style.display = 'flex'
-        container[0].style.flexDirection = 'column'
-                
-        for(let i = 0; i < images.length; i++) {
-            const image = images[i]
-            if(image.alt != "homeButton") {
-            image.style.width = '800px'
-            image.style.height = '800px'
-            image.style.marginLeft = 'auto'
-            image.style.marginRight = 'auto'
-            image.style.position = 'relative'
+            container[0].style.display = 'flex'
+            container[0].style.flexDirection = 'column'
+            
+            for(let i = 0; i < images.length; i++) {
+                const image = images[i]
+                if(image.id) {
+                    image.style.width = '800px'
+                    image.style.height = '800px'
+                    image.style.marginLeft = 'auto'
+                    image.style.marginRight = 'auto'
+                    image.style.position = 'relative'
+                }
             }
-        }
+            const foundImage = images.find((x) => {
+                return x.id === e.target.id
+            })
+            foundImage.scrollIntoView({block: 'center'})
+        
 
-        const image = images.find((x) => {
-            return x.id === e.target.id
-        })
-
-        image.scrollIntoView({block: 'center'})
     }
 
     return (
