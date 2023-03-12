@@ -1,27 +1,27 @@
-import React, {useState} from "react"
-import DelPopup from "./DelPopup"
-import { deleteFlash } from '../../api/flash'
+import React, { useState } from "react"
+import { deleteTattoo } from '../../api/tattooGallery'
+import DelPopup from './DelPopup'
 
-export default function AdminDelPopup({setDeletionPopup, flashState}) {
+export default function AdminDelTattooPopup({setDeletionPopup, tattooState}) {
     const [popup, setPopup] = useState(false)
 
     function handleClose(e) {
         e.preventDefault()
         setDeletionPopup(false)
-        console.log(getFlash)
     }
 
     function handleDelete(e) {
         e.preventDefault()
     
-        const flash = flashState.find((x) => {
+        const tattoo = tattooState.find((x) => {
           return x.id == e.target.id
         })
-        deleteFlash(flash)
+        deleteTattoo(tattoo)
         setPopup(true)
 
         setTimeout(() => {
             setPopup(false)
+            window.location.reload()
         }, 2500);
     }
 
@@ -32,17 +32,17 @@ export default function AdminDelPopup({setDeletionPopup, flashState}) {
         : null
         }
         <div className="delPopup">
-        <h1>Delete Flash:</h1>
-        {flashState.map((flash) => (
+        <h1>Delete Tattoos:</h1>
+        {tattooState.map((tattoo) => (
             <>
             <div className="delFlash">
               <img
                 className="delFlashImage"
-                src={`images/flash/${flash.Filename}`}
-                alt="flashPhoto"
+                src={`images/tattoos/${tattoo.Filename}`}
+                alt="tattooPhoto"
               />
               <form>
-                <button type="submit" id={flash.id} onClick={handleDelete}>
+                <button type="submit" id={tattoo.id} onClick={handleDelete}>
                   Delete
                 </button>
               </form>

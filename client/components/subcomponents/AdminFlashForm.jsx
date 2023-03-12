@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { fetchFlash, postFlash } from "../../api/flash"
 import { postFlashImage } from "../../api/flashImages"
-import AdminDelPopup from "./AdminDelPopup";
+import AdminDelFlashPopup from "./AdminDelFlashPopup";
 import AdminUploadPopup from "./AdminUploadPopup"
 
 export default function AdminFlashForm() {
@@ -79,7 +79,7 @@ export default function AdminFlashForm() {
     return(
         <>
         {deletionPopup
-        ? <AdminDelPopup setDeletionPopup={setDeletionPopup} flashState={flashState}/>
+        ? <AdminDelFlashPopup setDeletionPopup={setDeletionPopup} flashState={flashState} />
         : null}
         {popup 
         ? <AdminUploadPopup />

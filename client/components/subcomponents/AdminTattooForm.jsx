@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { fetchGallery, postTattoo } from "../../api/tattooGallery"
 import { postTattooImage } from "../../api/tattooImages"
 import AdminUploadPopup from "./AdminUploadPopup"
+import AdminDelTattooPopup from "./AdminDelTattooPopup"
 
 export default function AdminTattooForm() {
     const [textForm, setTextForm] = useState({
@@ -15,6 +16,8 @@ export default function AdminTattooForm() {
     })
     const [postStatus, setPostStatus] = useState("")
     const [popup, setPopup] = useState(false)
+    const [deletionPopup, setDeletionPopup] = useState(false)
+    const [tattooState, setTattooState] = useState([])
 
     async function handleImage(e) {
         e.preventDefault()
@@ -60,8 +63,19 @@ export default function AdminTattooForm() {
         }
     }
 
+    async function handleDelete(e) {
+        e.preventDefault()
+        const tattoo = await fetchGallery()
+        setDeletionPopup(true)
+        setTattooState(tattoo.images)
+    }
+
     return(
         <>
+        {deletionPopup
+        ? <AdminDelTattooPopup setDeletionPopup={setDeletionPopup} tattooState={tattooState} />
+        : null
+        }
         {popup 
         ? <AdminUploadPopup />
         : null}
@@ -73,6 +87,7 @@ export default function AdminTattooForm() {
             <button type="submit" onClick={handleSubmit} className="button">
               Submit to database
             </button>
+            <button type='submit' onClick={handleDelete}>Delete Tattoos...</button>
         <div className="break"></div>
         </>
     )

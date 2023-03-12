@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb')
 require('dotenv').config()
 
 const usr = process.env.MONGODB_USERNAME
@@ -25,7 +25,17 @@ function postTattoo(data) {
     return client.db(database).collection(cltn).insertOne(data)
 }
 
+async function deleteTattoo(data) {
+    try {
+        const deletion = await client.db(database).collection(cltn).deleteOne({_id: ObjectId(data._id)})
+        return deletion
+    } catch (err) {
+        console.log(err.message)
+    }
+}
+
 module.exports = {
     getGallery,
-    postTattoo
+    postTattoo,
+    deleteTattoo
 }

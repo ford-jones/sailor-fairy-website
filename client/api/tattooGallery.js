@@ -25,3 +25,15 @@ export function postTattoo(data) {
         console.log(err.message)
     })
 }
+
+export function deleteTattoo(data) {
+    return request
+    .del(rootUrl + "/gallery")
+    .send(data)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => {
+        console.error(err.message)
+    })
+}
