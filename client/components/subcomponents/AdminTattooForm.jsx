@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { fetchGallery, postTattoo } from "../../api/tattooGallery"
 import { postTattooImage } from "../../api/tattooImages"
 import AdminUploadPopup from "./AdminUploadPopup"
@@ -58,7 +58,8 @@ export default function AdminTattooForm() {
             setPopup(true)
             setTimeout(() => {
                 setPopup(false)
-                window.location.reload()
+                setTextForm({id: "", Date: "", Filename: ""})
+                setImageForm({preview: "", data: ""})
             }, 3000)
         }
     }
@@ -69,6 +70,11 @@ export default function AdminTattooForm() {
         setDeletionPopup(true)
         setTattooState(tattoo.images)
     }
+
+    useEffect(async () => {
+        const tattoo = await fetchGallery()
+        setTattooState(tattoo.images)
+    }, [deletionPopup])
 
     return(
         <>

@@ -139,3 +139,19 @@
     overflow-y: scroll;
     scrollbar-width: thin;
 }
+
+.loginButton {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    top: 100px;
+  }
+
+.logout {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-right: 100px;
+}

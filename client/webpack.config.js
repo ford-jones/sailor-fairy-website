@@ -61,6 +61,15 @@ module.exports = {
         'process.env.TATTOO_CLN': JSON.stringify(
           process.env.MONGODB_TATTOO_CLN
         ),
+        'process.env.REACT_APP_AUTH_AUDIENCE': JSON.stringify(
+          process.env.REACT_APP_AUTH_AUDIENCE
+        ),
+        'process.env.REACT_APP_AUTH_DOMAIN': JSON.stringify(
+          process.env.REACT_APP_AUTH_DOMAIN
+        ),
+        'process.env.REACT_APP_AUTH_CLIENT_ID': JSON.stringify(
+          process.env.REACT_APP_AUTH_CLIENT_ID
+        ),
     })
   ],
 }
