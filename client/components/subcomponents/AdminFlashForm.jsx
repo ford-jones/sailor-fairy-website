@@ -77,7 +77,6 @@ export default function AdminFlashForm() {
         setFlashState(flash.images)
     }
     
-
     useEffect(async () => {
         const flash = await fetchFlash()
         setFlashState(flash.images)
