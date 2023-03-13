@@ -21,7 +21,8 @@ export default function AdminDelTattooPopup({setDeletionPopup, tattooState}) {
 
         setTimeout(() => {
             setPopup(false)
-            window.location.reload()
+            handleClose(e)
+            setDeletionPopup(true)
         }, 2500);
     }
 
