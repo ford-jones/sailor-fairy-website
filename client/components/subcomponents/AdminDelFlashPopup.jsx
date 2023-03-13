@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import AdminDelTattooPopup from "./AdminDelTattooPopup"
+import DelPopup from "./DelPopup"
 import { deleteFlash } from '../../api/flash'
 
 export default function AdminDelFlashPopup({setDeletionPopup, flashState}) {
@@ -20,15 +20,16 @@ export default function AdminDelFlashPopup({setDeletionPopup, flashState}) {
         setPopup(true)
 
         setTimeout(() => {
-            setPopup(false)
-            window.location.reload()
+          setPopup(false)
+          handleClose(e)
+          setDeletionPopup(true)
         }, 2500);
     }
 
     return(
         <>
         {popup
-        ? <delPopup />
+        ? <DelPopup />
         : null
         }
         <div className="delPopup">
@@ -49,7 +50,7 @@ export default function AdminDelFlashPopup({setDeletionPopup, flashState}) {
             </div>
           </>
         ))}
-            <button type="submit" onClick={handleClose}>
+            <button type="submit" name="close" onClick={handleClose}>
                 close
             </button>
         </div>

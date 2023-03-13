@@ -58,7 +58,8 @@ export default function AdminTattooForm() {
             setPopup(true)
             setTimeout(() => {
                 setPopup(false)
-                window.location.reload()
+                setTextForm({id: "", Date: "", Filename: ""})
+                setImageForm({preview: "", data: ""})
             }, 3000)
         }
     }

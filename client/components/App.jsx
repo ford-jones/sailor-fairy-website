@@ -9,6 +9,7 @@ import TattooGallery from './TattooGallery'
 import Admin from './Admin'
 
 export default function App() {
+
     return (
         <>
         <div className='app'>

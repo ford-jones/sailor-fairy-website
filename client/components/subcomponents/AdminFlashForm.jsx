@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchFlash, postFlash } from "../../api/flash"
 import { postFlashImage } from "../../api/flashImages"
 import AdminDelFlashPopup from "./AdminDelFlashPopup";
@@ -64,7 +64,8 @@ export default function AdminFlashForm() {
             setPopup(true)
             setTimeout(() => {
                 setPopup(false)
-                window.location.reload()
+                setTextForm({id: "", Date: "", Filename: "", Taken_status: "0"})
+                setImageForm({preview: "", data: ""})
             }, 3000)
         }
     }
@@ -75,7 +76,13 @@ export default function AdminFlashForm() {
         setDeletionPopup(true)
         setFlashState(flash.images)
     }
+    
 
+    useEffect(async () => {
+        const flash = await fetchFlash()
+        setFlashState(flash.images)
+    }, [deletionPopup])
+    
     return(
         <>
         {deletionPopup
