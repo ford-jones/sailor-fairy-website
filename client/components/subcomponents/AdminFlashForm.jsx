@@ -3,6 +3,7 @@ import { fetchFlash, postFlash } from "../../api/flash"
 import { postFlashImage } from "../../api/flashImages"
 import AdminDelFlashPopup from "./AdminDelFlashPopup";
 import AdminUploadPopup from "./AdminUploadPopup"
+import UploadFailure from "./UploadFailure";
 
 export default function AdminFlashForm() {
     const [textForm, setTextForm] = useState({
@@ -18,6 +19,7 @@ export default function AdminFlashForm() {
     const [postStatus, setPostStatus] = useState("")
     const [popup, setPopup] = useState(false)
     const [deletionPopup, setDeletionPopup] = useState(false)
+    const [failPopup, setFailPopup] = useState(false)
     const [flashState, setFlashState] = useState([])
 
     function handleChange(e) {
@@ -55,19 +57,29 @@ export default function AdminFlashForm() {
         setTextForm({...textForm, id: newId, Date: date, Filename: e.target.files[0].name})
     }
     
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        if(textForm != {id: "", Date: "", Filename: "", Taken_status: "0"}) {
-            postFlashImage(imageForm)
-            postFlash(textForm)
-            handleImage(e)
-            setPopup(true)
+        
+        const flash = await fetchFlash()
+        const findMatch = flash.images.filter((x) => {
+            return x.Filename === textForm.Filename
+        })
+
+        if(textForm.id === "" || findMatch.length > 0) {
+            setFailPopup(true)
             setTimeout(() => {
-                setPopup(false)
-                setTextForm({id: "", Date: "", Filename: "", Taken_status: "0"})
-                setImageForm({preview: "", data: ""})
-            }, 3000)
-        }
+                setFailPopup(false)
+            }, 4000)
+        } else {
+        postFlashImage(imageForm)
+        postFlash(textForm)
+        handleImage(e)
+        setPopup(true)
+        setTimeout(() => {
+            setPopup(false)
+            setTextForm({id: "", Date: "", Filename: "", Taken_status: "0"})
+            setImageForm({preview: "", data: ""})
+        }, 3000)}
     }
 
     async function handleDelete(e) {
@@ -84,6 +96,9 @@ export default function AdminFlashForm() {
     
     return(
         <>
+        {failPopup
+        ? <UploadFailure />
+        : null}
         {deletionPopup
         ? <AdminDelFlashPopup setDeletionPopup={setDeletionPopup} flashState={flashState} />
         : null}
