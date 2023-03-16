@@ -3,6 +3,7 @@ import { fetchGallery, postTattoo } from "../../api/tattooGallery"
 import { postTattooImage } from "../../api/tattooImages"
 import AdminUploadPopup from "./AdminUploadPopup"
 import AdminDelTattooPopup from "./AdminDelTattooPopup"
+import UploadFailure from "./UploadFailure";
 
 export default function AdminTattooForm() {
     const [textForm, setTextForm] = useState({
@@ -17,6 +18,7 @@ export default function AdminTattooForm() {
     const [postStatus, setPostStatus] = useState("")
     const [popup, setPopup] = useState(false)
     const [deletionPopup, setDeletionPopup] = useState(false)
+    const [failPopup, setFailPopup] = useState(false)
     const [tattooState, setTattooState] = useState([])
 
     async function handleImage(e) {
@@ -43,15 +45,25 @@ export default function AdminTattooForm() {
         })
 
         const gallery = await fetchGallery()
-        console.log(e.target.files[0])
         const newId = String(Number(gallery.images.pop().id) + 1)
         const date = new Date(Date.now())
         setTextForm({...textForm, id: newId, Date: date, Filename: e.target.files[0].name})
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        if(textForm != {id: "", Date: "", Filename: ""}) {
+
+        const tattoo = await fetchGallery()
+        const findMatch = tattoo.images.filter((x) => {
+            return x.Filename === textForm.Filename
+        })
+
+        if(textForm.id === "" || findMatch.length > 0) {
+            setFailPopup(true)
+            setTimeout(() => {
+                setFailPopup(false)
+            }, 4000)
+        } else {
             postTattooImage(imageForm)
             postTattoo(textForm)
             handleImage(e)
@@ -78,6 +90,9 @@ export default function AdminTattooForm() {
 
     return(
         <>
+        {failPopup 
+        ? <UploadFailure />
+        : null}
         {deletionPopup
         ? <AdminDelTattooPopup setDeletionPopup={setDeletionPopup} tattooState={tattooState} />
         : null
