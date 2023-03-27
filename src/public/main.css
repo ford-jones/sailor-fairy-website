@@ -6,11 +6,12 @@
     display: flex;
     flex-flow: row;
     justify-content: center;
+    padding: 100px;
 }
 
 .flashLink {
     padding: 10px;
-    margin: 20px;
+    margin: 80px;
     width: 200px;
     height: 300px;
     text-align: center;
@@ -29,6 +30,7 @@
     height: 450px;
     width: 450px;
     border: 2px solid white;
+    cursor: pointer;
 }
 
 .bookingForm {
@@ -45,12 +47,6 @@
 }
 
 .textbox {
-    /* width: 500px;
-    align-self: center;
-    margin: 20px; */
-    /* display: inline-block;
-    text-align: left; */
-    /* float: right; */
     width: 500px;
     display: inline-block;
     top: -40px;
@@ -71,15 +67,6 @@
     margin: 20px;
     text-align: right;
     width: 200px;
-    /* position: left; */
-    /* display: flex;
-    align-items: stretch;
-    margin: 20px; */
-    /* flex-direction: column; */
-    /* flex-flow: wrap; */
-    /* display: inline-block;
-    width: 150px;
-    text-align: right; */
 }
 
 .checkboxLabel {
@@ -125,7 +112,8 @@
   position: fixed;
   width: 40px;
   height: 40px;
-  left: 15%;
+  margin-left: 25%;
+  cursor: pointer;
 }
 
 .break {
