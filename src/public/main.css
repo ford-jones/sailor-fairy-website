@@ -2,9 +2,17 @@
     text-align: center;
 }
 
+.homeContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
 .flashLink {
     padding: 10px;
-    margin: 100px;
+    margin: 20px;
+    width: 200px;
+    height: 300px;
     text-align: center;
     border: 2px solid black;
 }
@@ -37,9 +45,18 @@
 }
 
 .textbox {
-    width: 500px;
+    /* width: 500px;
     align-self: center;
-    margin: 20px;
+    margin: 20px; */
+    /* display: inline-block;
+    text-align: left; */
+    /* float: right; */
+    width: 500px;
+    display: inline-block;
+    top: -40px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;    
 }
 
 .bigTextBox {
@@ -50,13 +67,19 @@
 }
 
 .label {
-    position: left;
-    display: flex;
-    flex-direction: column;
-    flex-flow: wrap;
-    /* display: inline-block; */
-    /* width: 150px;
-    text-align: left; */
+    display: inline-block;
+    margin: 20px;
+    text-align: right;
+    width: 200px;
+    /* position: left; */
+    /* display: flex;
+    align-items: stretch;
+    margin: 20px; */
+    /* flex-direction: column; */
+    /* flex-flow: wrap; */
+    /* display: inline-block;
+    width: 150px;
+    text-align: right; */
 }
 
 .checkboxLabel {
