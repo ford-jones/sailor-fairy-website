@@ -43,24 +43,24 @@
 }
 
 .bigTextBox {
-    width: 400px;
+    width: 500px;
     padding-bottom: 200px;
     align-self: center;
     margin: 20px;
 }
 
 .label {
-    position: relative;
-    /* top: 40px; */
+    position: left;
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
+    /* display: inline-block; */
+    /* width: 150px;
+    text-align: left; */
 }
 
 .checkboxLabel {
     position: relative;
-    /* top: 20px;
-    left: -50px; */
 }
 
 .button {
@@ -70,6 +70,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
+    text-align: center;
 }
 
 .popup {
