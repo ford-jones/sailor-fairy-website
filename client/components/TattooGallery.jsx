@@ -1,12 +1,12 @@
 import React from "react"
 import HomeButton from "./subcomponents/HomeButton"
+import NavBar from "./subcomponents/NavBar"
 import TattooGalleryContainer from "./subcomponents/TattooGalleryContainer"
 
 export default function TattooGallery() {
     return (
         <>
-        <h1 className="header">Tattoo Gallery</h1>
-        <HomeButton />
+        <NavBar heading="Tattoo Gallery" />
         <TattooGalleryContainer />
         </>
     )

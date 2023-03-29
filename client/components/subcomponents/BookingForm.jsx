@@ -79,7 +79,9 @@ export default function BookingForm() {
       {rejectPopup ? <RejectedPopup /> : null}
       {successPopup ? <SuccessfulPopup /> : null}
       <form ref={formHtml} className="bookingForm" noValidate>
-        <h3>Booking Details:</h3>
+
+        <h3 className='microHeader'>Booking Details:</h3>
+
         <label htmlFor="first_name" className="label">
           First Name:
         </label>
@@ -147,7 +149,7 @@ export default function BookingForm() {
           className="textbox"
         ></input>
 
-        <h3>Flash or Custom?</h3>
+        <h3 className='microHeader'>Flash or Custom?</h3>
 
         <label htmlFor="flash" className="checkboxLabel">
           Flash:
@@ -169,7 +171,7 @@ export default function BookingForm() {
           onChange={handleChange}
         ></input>
 
-        <h3>Brief description of your tattoo:</h3>
+        <h3 className='microHeader'>Brief description of your tattoo:</h3>
 
         <input
           type="text"
@@ -180,7 +182,7 @@ export default function BookingForm() {
           className="bigTextBox"
         ></input>
 
-        <h3>Dates & Times:</h3>
+        <h3 className='microHeader'>Dates & Times:</h3>
 
         <label htmlFor="pref_day" className="label">
           Preffered Days:
@@ -205,7 +207,7 @@ export default function BookingForm() {
           className="textbox"
         ></input>
 
-        <h3>Any further questions are welcomed:</h3>
+        <h3 className='microHeader'>Any further questions are welcomed:</h3>
 
         <input
           type="text"
