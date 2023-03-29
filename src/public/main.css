@@ -1,9 +1,14 @@
 @media screen and (max-width: 450px) {
+  .homeHeader {
+    margin-bottom: 120px;
+    scale: 2;
+  }
+
   .homeContainer {
     flex-flow: column;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px;
+    height: 300px;
   }
 
   .flashLink {
@@ -13,181 +18,191 @@
   }
 }
 
-@media screen and (max-width: 2000px){
+.header {
+  text-align: center;
+}
   
-  .header {
-    text-align: center;
-  }
+.homeHeader {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  width: 50%;
+}
   
-  .homeContainer {
-    display: flex;
-    justify-content: center;
-    padding: 100px;
-  }
+.homeContainer {
+  display: flex;
+  justify-content: center;
+}
   
-  .flashLink {
-    padding: 10px;
-    margin: 5%;
-    width: 200px;
-    height: 300px;
-    text-align: center;
-    border: 2px solid black;
-  }
+.flashLink {
+  padding: 10px;
+  margin: 5%;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  border: 2px solid black;
+}
   
-  .loader {
-    text-align: center;
-  }
+.loader {
+  text-align: center;
+  justify-self: center;
+  position: fixed;
+  top: 200px;
+}
   
-  .imageContainer {
-    display: inline-block;
-  }
+.imageContainer {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 21%);
+  grid-gap: 2%;
+  justify-content: center;
+}
   
-  .flashImage {
-    height: 450px;
-    width: 450px;
-    border: 2px solid white;
-    cursor: pointer;
-  }
+.flashImage {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
   
-  .bookingForm {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: 2px solid gray;
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-    margin-bottom: 80px;
-    box-shadow: 1px 1px 5px 5px gray;
-  }
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid gray;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  margin-bottom: 80px;
+  box-shadow: 1px 1px 5px 5px gray;
+}
   
-  .textbox {
-    width: 500px;
-    display: inline-block;
-    top: -40px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;    
-  }
+.textbox {
+  width: 500px;
+  display: inline-block;
+  top: -40px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;    
+}
   
-  .bigTextBox {
-    width: 500px;
-    padding-bottom: 200px;
-    align-self: center;
-    margin: 20px;
-  }
+.bigTextBox {
+  width: 500px;
+  padding-bottom: 200px;
+  align-self: center;
+  margin: 20px;
+}
   
-  .label {
-    display: inline-block;
-    margin: 20px;
-    text-align: right;
-    width: 200px;
-  }
+.label {
+  display: inline-block;
+  margin: 20px;
+  text-align: right;
+  width: 200px;
+}
   
-  .checkboxLabel {
-    position: relative;
-  }
+.checkboxLabel {
+  position: relative;
+}
   
-  .button {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    text-align: center;
-  }
+.button {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  text-align: center;
+}
   
-  .popup {
-    background-color: white;
-    top: 50%;
-    left: 35%;
-    position: fixed;
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px;
-    text-align: center;
-    flex: auto;
-    flex-direction: column;
-    z-index: 100;
-    height: max-content;
-    width: max-content;
-    padding: 20px;
-  }
+.popup {
+  background-color: white;
+  top: 50%;
+  left: 35%;
+  position: fixed;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px;
+  text-align: center;
+  flex: auto;
+  flex-direction: column;
+  z-index: 100;
+  height: max-content;
+  width: max-content;
+  padding: 20px;
+}
+  .homebutton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+}
   
-.homebutton {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 10px;
-    left: 40px;
-  }
+.backButton {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  margin-left: 25%;
+  cursor: pointer;
+}
   
-  .backButton {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    margin-left: 25%;
-    cursor: pointer;
-  }
+.break {
+  width: 100%;
+  height: 2px;
+  border: 1px solid gray;
+  margin-top: 50px;
+}
+.delFlash {
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 820px;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
   
-  .break {
-    width: 100%;
-    height: 2px;
-    border: 1px solid gray;
-    margin-top: 50px;
-  }
-  .delFlash {
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    width: 820px;
-    height: 100px;
-    display: flex;
-    justify-content: space-evenly;
-  }
+.delFlashImage {
+  width: 120px;
+  height: 120px;
+  flex-direction: row;
+  position: relative;
+}
   
-  .delFlashImage {
-    width: 120px;
-    height: 120px;
-    flex-direction: row;
-    position: relative;
-  }
+.delPopup {
+  text-align: center;
+  background-color: white;
+  top: 10%;
+  left: 25%;
+  position: fixed;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px;
+  text-align: start;
+  flex: auto;
+  flex-direction: column;
+  z-index: 80;
+  height: 500px;
+  width: 900px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
   
-  .delPopup {
-    text-align: center;
-    background-color: white;
-    top: 10%;
-    left: 25%;
-    position: fixed;
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px;
-    text-align: start;
-    flex: auto;
-    flex-direction: column;
-    z-index: 80;
-    height: 500px;
-    width: 900px;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-  }
+.loginButton {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+  top: 100px;
+}
   
-  .loginButton {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    display: flex;
-    top: 100px;
-  }
-  
-  .logout {
-    float: right;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    margin-right: 100px;
-  }
+.logout {
+  float: right;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-right: 100px;
 }

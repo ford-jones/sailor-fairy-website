@@ -4,9 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 export default function Home() {
     return(
         <>
-        <div className="header">
-        <h1>Sailor Fairy</h1>
-        </div>
+        <img src="images/homeHeader.JPG" alt="sailor_fairy" className="homeHeader"></img>
 
         <div className="homeContainer">
             <div className="flashLink">

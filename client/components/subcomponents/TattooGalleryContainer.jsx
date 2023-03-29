@@ -35,8 +35,7 @@ export default function TattooGalleryContainer() {
     for (let i = 0; i < images.length; i++) {
       const image = images[i]
       if (image.id) {
-        image.style.width = '800px'
-        image.style.height = '800px'
+        image.style.width = '40%'
         image.style.marginLeft = 'auto'
         image.style.marginRight = 'auto'
         image.style.position = 'relative'
