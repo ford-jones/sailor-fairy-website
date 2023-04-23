@@ -1,14 +1,13 @@
 import React from "react"
 
 import FlashContainer from './subcomponents/FlashContainer'
-import HomeButton from "./subcomponents/HomeButton"
+import NavBar from "./subcomponents/NavBar"
 
 export default function Flash() {
 
     return (
         <>
-        <h1 className="header">Flash</h1>
-        <HomeButton />
+        <NavBar heading='Flash' />
         <FlashContainer />
         </>
     )

@@ -22,30 +22,6 @@ export default function FlashContainer() {
     }, 2000)
   }, [loading])
 
-  function onMouseOver(e) {
-    e.preventDefault()
-    const image = images.find((x) => {
-      return x.id === e.target.id
-    })
-
-    const match = flash.find((y) => {
-      return y.id == e.target.id
-    })
-
-    match.Taken_status === '1'
-      ? (image.style.border = '2px solid red')
-      : (image.style.border = '2px solid black')
-  }
-
-  function onMouseOut(e) {
-    e.preventDefault()
-    const image = images.find((x) => {
-      return x.id === e.target.id
-    })
-
-    image.style.border = '2px solid white'
-  }
-
   function onClick(e) {
     e.preventDefault()
     const getContainer = document.getElementsByClassName('imageContainer')
@@ -56,8 +32,7 @@ export default function FlashContainer() {
     for (let i = 0; i < images.length; i++) {
       const image = images[i]
       if (image.id) {
-        image.style.width = '800px'
-        image.style.height = '800px'
+        image.style.width = '40%'
         image.style.marginLeft = 'auto'
         image.style.marginRight = 'auto'
         image.style.position = 'relative'
@@ -84,8 +59,6 @@ export default function FlashContainer() {
                 className="flashImage"
                 id={x.id}
                 key={x.id}
-                onMouseOver={onMouseOver}
-                onMouseOut={onMouseOut}
                 onClick={onClick}
               />
             ))}

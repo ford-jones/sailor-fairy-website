@@ -4,37 +4,29 @@ import { Link, Outlet } from "react-router-dom";
 export default function Home() {
     return(
         <>
-        <div className="header">
-        <h1>Sailor Fairy</h1>
-        <p>Welcome!</p>
+        <img src="images/homeHeader.JPG" alt="sailor_fairy" className="homeHeader"></img>
 
-        <Link to="/Flash">
+        <div className="homeContainer">
             <div className="flashLink">
-                <p>Flash:</p>
+                <Link to="/Flash">
+                    <p>Flash:</p>
+                </Link>
+                <Outlet />
             </div>
-        </Link>
-        <Outlet />
 
-        <Link to="/Gallery">
             <div className="flashLink">
-                <p>Tattoo Gallery:</p>
+                <Link to="/Gallery">
+                    <p>Tattoo Gallery:</p>
+                </Link>
+                <Outlet />
             </div>
-        </Link>
-        <Outlet />
 
-        <Link to="/Faq">
             <div className="flashLink">
-                <p>FAQ:</p>
+                <Link to="/Booking">
+                    <p>Make a Booking:</p>
+                </Link>
+                <Outlet />
             </div>
-        </Link>
-        <Outlet />
-
-        <Link to="/Booking">
-            <div className="flashLink">
-                <p>Make a Booking:</p>
-            </div>
-        </Link>
-        <Outlet />
         </div>
         </>
     )
